@@ -4,6 +4,8 @@ from openpyxl import load_workbook
 import sqlite3
 import os
 
+from renaming_of_professions import renaming_of_professions
+
 # Определяем название базы данных и таблицы
 file_database = "my_database.db"
 table_name = "my_table"
@@ -103,6 +105,10 @@ button.pack(pady=20)
 # Создаем кнопку "Парсинг файла"
 button1 = tk.Button(root, text="Парсинг файла", command=input_function)
 button1.pack(pady=20)
+
+# Создаем кнопку "Переименование профессий с EСXELL файла"
+button3 = tk.Button(root, text="Переименование профессий с EСXELL файла", command=renaming_of_professions)
+button3.pack(pady=20)
 
 # Запуск главного цикла окна
 root.mainloop()
