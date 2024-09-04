@@ -100,15 +100,15 @@ def input_function():
 
 # Создаем кнопку "Выбрать файл"
 button = tk.Button(root, text="Выбрать файл", command=select_file)
-button.pack(pady=20)
+button.pack(pady=2) # Расстояние между кнопками
 
 # Создаем кнопку "Парсинг файла"
 button1 = tk.Button(root, text="Парсинг файла", command=input_function)
-button1.pack(pady=20)
+button1.pack(pady=2) # Расстояние между кнопками
 
 # Создаем кнопку "Переименование профессий с EСXELL файла"
 button3 = tk.Button(root, text="Переименование профессий с EСXELL файла", command=renaming_of_professions)
-button3.pack(pady=20)
+button3.pack(pady=2) # Расстояние между кнопками
 
 # Запуск главного цикла окна
 root.mainloop()
