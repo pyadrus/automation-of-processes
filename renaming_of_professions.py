@@ -83,7 +83,7 @@ def input_function_1():
     # Добавляем метки к полям ввода
     Label(root, text="Минимальная строка:").grid(row=0, column=0, padx=5, pady=5)
     Label(root, text="Максимальная строка:").grid(row=2, column=0, padx=5, pady=5)
-    Label(root, text="Столбец:").grid(row=4, column=0, padx=5, pady=5)
+    Label(root, text="Столбец (счет начинается с 1) :").grid(row=4, column=0, padx=5, pady=5)
 
     # Размещаем поля ввода
     entry1.grid(row=1, column=0, padx=5, pady=5)
