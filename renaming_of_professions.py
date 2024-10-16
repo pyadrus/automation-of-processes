@@ -1,9 +1,6 @@
-from tkinter import filedialog
 import tkinter as tk
 from tkinter import filedialog, Entry, Label, Button
-from openpyxl import load_workbook
-import sqlite3
-import os
+
 from openpyxl import load_workbook
 
 
