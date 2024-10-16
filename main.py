@@ -4,17 +4,12 @@ from openpyxl import load_workbook
 import sqlite3
 import os
 
+from gui import root
 from renaming_of_professions import renaming_of_professions
 
 # Определяем название базы данных и таблицы
 file_database = "my_database.db"
 table_name = "my_table"
-
-# Создаем главное окно
-root = tk.Tk()
-root.title("Выбор файла")  # Заголовок окна
-
-root.geometry("400x400")  # Размер окна
 
 # Создаем текст (метка)
 label = tk.Label(root, text="Нажмите на кнопку ниже, чтобы выбрать файл:")
@@ -74,6 +69,7 @@ def handle_done_button(entry1, entry2, entry3):
 
 # Функция для графического ввода данных
 def input_function():
+
     # Очистка содержимого окна и замена главного окна на новое окно
     for widget in root.winfo_children():
         widget.pack_forget()
@@ -101,20 +97,20 @@ def input_function():
     entry3.config(width=70)
 
     # Создаем кнопку "Готово" и добавляем обработчик событий
-    Button(root, text="Готово", command=lambda: handle_done_button(entry1, entry2, entry3)).grid(row=6, column=0,
-                                                                                                 pady=10)
+    Button(root, text="Готово", command=lambda: handle_done_button(entry1, entry2, entry3)).grid(row=6, column=0, pady=10)
 
 
 # Создаем кнопку "Выбрать файл"
-button = tk.Button(root, text="Выбрать файл", command=select_file)
+button = tk.Button(root, text="Выбрать файл", command=select_file, width=48, height=1)
 button.pack(pady=2)  # Расстояние между кнопками
 
 # Создаем кнопку "Парсинг файла"
-button1 = tk.Button(root, text="Парсинг файла", command=input_function)
+button1 = tk.Button(root, text="Парсинг файла", command=input_function, width=48, height=1)
 button1.pack(pady=2)  # Расстояние между кнопками
 
 # Создаем кнопку "Переименование профессий с EСXELL файла"
-button3 = tk.Button(root, text="Переименование профессий с EСXELL файла", command=renaming_of_professions)
+button3 = tk.Button(root, text="Переименование профессий с EСXELL файла", command=renaming_of_professions, width=48,
+                    height=1)
 button3.pack(pady=2)  # Расстояние между кнопками
 
 # Запуск главного цикла окна

@@ -1,7 +1,8 @@
-import tkinter as tk
 from tkinter import filedialog, Entry, Label, Button
 
 from openpyxl import load_workbook
+
+from gui import root
 
 
 def parsing_document_1(min_row, max_row, column):
@@ -45,6 +46,17 @@ def parsing_document_1(min_row, max_row, column):
             cell.value = "Бухгалтер 1 категории расчётного сектора"# Заменяем неправильную профессию на правильную
         elif table_column_1 == "уборщик служеб.помещений":
             cell.value = "Уборщик служебных помещений"# Заменяем неправильную профессию на правильную
+        elif table_column_1 == "мех.уч-ка":
+            cell.value = "Механик участка"# Заменяем неправильную профессию на правильную
+        elif table_column_1 == "нач.смены":
+            cell.value = "Начальник смены"# Заменяем неправильную профессию на правильную
+        elif table_column_1 == "гл.инженер":
+            cell.value = "Главный инженер"# Заменяем неправильную профессию на правильную
+        elif table_column_1 == "зам. гл. инженера (по ПАЗ)":
+            cell.value = "Заместитель главного инженера по противоаварийной защите"# Заменяем неправильную профессию на правильную
+        elif table_column_1 == "зам. директора (по ОТ и ТБ)":
+            cell.value = "Заместитель директора по охране труда и ТБ"# Заменяем неправильную профессию на правильную
+
 
     try:
         # Сохраняем изменения в том же файле
@@ -61,7 +73,6 @@ def handle_done_button(entry1, entry2, entry3):
 # Функция для графического ввода данных
 def input_function_1():
     # Создаем главное окно
-    root = tk.Tk()
     root.title("Выбор файла")  # Заголовок окна
 
     root.geometry("400x400")  # Размер окна
