@@ -6,6 +6,7 @@ import os
 
 from gui import root
 from renaming_of_professions import renaming_of_professions
+from loguru import logger
 
 # Определяем название базы данных и таблицы
 file_database = "my_database.db"
@@ -20,7 +21,7 @@ label.pack(pady=20)
 def select_file():
     file_path = filedialog.askopenfilename()
     if file_path:
-        print(f"Выбран файл: {file_path}")
+        logger.info(f"Выбран файл: {file_path}")
 
 
 # Функция открытия файла Excel
@@ -63,7 +64,7 @@ def parsing_document(min_row, max_row, column):
 
 # Функция обработки кнопки "Готово"
 def handle_done_button(entry1, entry2, entry3):
-    print("Данные введены:", entry1.get(), entry2.get(), entry3.get())
+    logger.info("Данные введены:", entry1.get(), entry2.get(), entry3.get())
     parsing_document(entry1.get(), entry2.get(), entry3.get())
 
 
