@@ -4,6 +4,7 @@ from openpyxl import load_workbook
 import sqlite3
 import os
 from openpyxl.styles import PatternFill
+from accrual_reference import withdrawal_of_all_surcharges
 from gui import root
 from renaming_of_professions import renaming_of_professions
 from loguru import logger
@@ -176,6 +177,11 @@ button3.pack(pady=2)  # Расстояние между кнопками
 button4 = tk.Button(root, text="Сравнение данных и пометка цветом", command=find_and_highlight_duplicates, width=48,
                     height=1)
 button4.pack(pady=2)  # Расстояние между кнопками
+
+# Создаем кнопку "Переименование профессий с EСXELL файла"
+button5 = tk.Button(root, text="Вывод всех доплат", command=withdrawal_of_all_surcharges, width=48,
+                    height=1)
+button5.pack(pady=2)  # Расстояние между кнопками
 
 
 # Запуск главного цикла окна
