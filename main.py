@@ -17,21 +17,21 @@ label = tk.Label(root, text="Нажмите на кнопку ниже, чтоб
 label.pack(pady=20)
 
 
-# Функция для выбора файла
 def select_file():
+    """Функция для выбора файла"""
     file_path = filedialog.askopenfilename()
     if file_path:
         logger.info(f"Выбран файл: {file_path}")
 
 
-# Функция открытия файла Excel
 def opening_a_file():
+    """Функция открытия файла Excel"""
     filename = filedialog.askopenfilename(filetypes=[('Excel Files', '*.xlsx')])
     return filename
 
 
-# Функция обработки данных из Excel и вставки в базу данных SQLite
 def parsing_document(min_row, max_row, column):
+    """Функция обработки данных из Excel и вставки в базу данных SQLite"""
     filename = opening_a_file()  # Открываем выбор файла Excel для чтения данных
     workbook = load_workbook(filename=filename)  # Загружаем выбранный файл Excel
     sheet = workbook.active
@@ -62,14 +62,14 @@ def parsing_document(min_row, max_row, column):
     conn.close()
 
 
-# Функция обработки кнопки "Готово"
 def handle_done_button(entry1, entry2, entry3):
+    """Функция обработки кнопки "Готово"""
     logger.info("Данные введены:", entry1.get(), entry2.get(), entry3.get())
     parsing_document(entry1.get(), entry2.get(), entry3.get())
 
 
-# Функция для графического ввода данных
 def input_function():
+    """Функция для графического ввода данных"""
 
     # Очистка содержимого окна и замена главного окна на новое окно
     for widget in root.winfo_children():
@@ -165,17 +165,13 @@ def find_and_highlight_duplicates():
 # Создаем кнопку "Выбрать файл"
 button = tk.Button(root, text="Выбрать файл", command=select_file, width=48, height=1)
 button.pack(pady=2)  # Расстояние между кнопками
-
 # Создаем кнопку "Парсинг файла"
 button1 = tk.Button(root, text="Парсинг файла", command=input_function, width=48, height=1)
 button1.pack(pady=2)  # Расстояние между кнопками
-
 # Создаем кнопку "Переименование профессий с EСXELL файла"
 button3 = tk.Button(root, text="Переименование профессий с EСXELL файла", command=renaming_of_professions, width=48,
                     height=1)
 button3.pack(pady=2)  # Расстояние между кнопками
-
-
 # Создаем кнопку "Переименование профессий с EСXELL файла"
 button4 = tk.Button(root, text="Сравнение данных и пометка цветом", command=find_and_highlight_duplicates, width=48,
                     height=1)
