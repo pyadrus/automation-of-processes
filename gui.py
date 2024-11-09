@@ -1,6 +1,5 @@
 import tkinter as tk
 
-
 # Создаем главное окно
 root = tk.Tk()
 root.title("Выбор файла")  # Заголовок окна

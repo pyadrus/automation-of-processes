@@ -99,31 +99,31 @@ def input_function():
     entry3.config(width=70)
 
     # Создаем кнопку "Готово" и добавляем обработчик событий
-    Button(root, text="Готово", command=lambda: handle_done_button(entry1, entry2, entry3)).grid(row=6, column=0, pady=10)
-
+    Button(root, text="Готово", command=lambda: handle_done_button(entry1, entry2, entry3)).grid(row=6, column=0,
+                                                                                                 pady=10)
 
 
 def find_and_highlight_duplicates():
     filename = opening_a_file()  # Открываем выбор файла Excel для чтения данных
     workbook = load_workbook(filename=filename)  # Загружаем выбранный файл Excel
     sheet = workbook.active
-    
+
     # Создаем множество для хранения уникальных значений из файла и базы данных
     unique_values = set()
     duplicates = set()
-    
+
     # Задаем стиль подсветки для дубликатов
     fill = PatternFill(start_color="00FF00", end_color="00FF00", fill_type="solid")
-    
+
     # Создаем соединение с базой данных
     conn = sqlite3.connect(file_database)
     cursor = conn.cursor()
-    
+
     # Извлекаем все значения из базы данных, приводим их к строкам
     cursor.execute(f"SELECT table_column_1 FROM {table_name}")
     db_values = set([str(row[0]) for row in cursor.fetchall()])
     logger.info(f"Данные из базы данных: {db_values}")
-    
+
     # Добавляем значения из базы данных в уникальные значения
     unique_values.update(db_values)
 
@@ -131,12 +131,12 @@ def find_and_highlight_duplicates():
     for row in range(7, 210):  # Проходим по строкам
         cell_value = sheet.cell(row=row, column=6).value  # Извлекаем значение из столбца 6 (индексация с 1)
         logger.info(f"Строка {row}, значение в ячейке: {cell_value}")
-        
+
         # Приводим значение из ячейки к строке для корректного сравнения
         if cell_value is None:
             continue
         cell_value_str = str(cell_value)
-        
+
         # Проверяем, есть ли значение в уникальных значениях (включая данные из базы)
         if cell_value_str in unique_values:
             duplicates.add(cell_value_str)
@@ -161,8 +161,6 @@ def find_and_highlight_duplicates():
     logger.info('Работа окончена')
 
 
-
-
 # Создаем кнопку "Выбрать файл"
 button = tk.Button(root, text="Выбрать файл", command=select_file, width=48, height=1)
 button.pack(pady=2)  # Расстояние между кнопками
@@ -182,7 +180,6 @@ button4.pack(pady=2)  # Расстояние между кнопками
 button5 = tk.Button(root, text="Вывод всех доплат", command=withdrawal_of_all_surcharges, width=48,
                     height=1)
 button5.pack(pady=2)  # Расстояние между кнопками
-
 
 # Запуск главного цикла окна
 root.mainloop()

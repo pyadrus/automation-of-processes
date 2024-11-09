@@ -1,9 +1,6 @@
-from logging import root
 import tkinter as tk
-from tkinter import filedialog, Entry, Label, Button
+from logging import root
 from tkinter import Canvas, Scrollbar, Frame
-
-from openpyxl import load_workbook
 
 from gui import root
 
